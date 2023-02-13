@@ -38,7 +38,7 @@
 
   <details>
 
-- [CHECK!] Write a function which sync's and seeds your database when your application starts
+- [almost... need to create dummy data] Write a function which sync's and seeds your database when your application starts
 
   </details>
 
@@ -46,7 +46,7 @@
 
   <details>
   
-  - [ ] Write a route to serve up all campuses
+  - [CHECK🥳🎉✅✅] Write a route to serve up all campuses
 
 - Write a `campuses` model with the following information:
   - [CHECK!] name - not empty or null
@@ -60,7 +60,7 @@
 
   <details>
   
-  - [ ] Write a route to serve up all students
+  - [CHECK🥳🎉✅✅] Write a route to serve up all students
 
 - Write a `students` model with the following information:
 
