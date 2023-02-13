@@ -38,7 +38,7 @@
 
   <details>
 
-- [ ] Write a function which sync's and seeds your database when your application starts
+- [CHECK!] Write a function which sync's and seeds your database when your application starts
 
   </details>
 
@@ -49,10 +49,10 @@
   - [ ] Write a route to serve up all campuses
 
 - Write a `campuses` model with the following information:
-  - [ ] name - not empty or null
-  - [ ] imageUrl - with a default value
-  - [ ] address - not empty or null
-  - [ ] description - extremely large text
+  - [CHECK!] name - not empty or null
+  - [CHECK!] imageUrl - with a default value
+  - [CHECK!] address - not empty or null
+  - [CHECK!] description - extremely large text
 
   </details>
 
@@ -64,13 +64,13 @@
 
 - Write a `students` model with the following information:
 
-  - [ ] firstName - not empty or null
-  - [ ] lastName - not empty or null
-  - [ ] email - not empty or null; must be a valid email
-  - [ ] imageUrl - with a default value
-  - [ ] gpa - decimal between 0.0 and 4.0
+  - [CHECK!] firstName - not empty or null
+  - [CHECK!] lastName - not empty or null
+  - [CHECK!] email - not empty or null; must be a valid email
+  - [CHECK!] imageUrl - with a default value
+  - [CHECK!] gpa - decimal between 0.0 and 4.0
 
-- [ ] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
+- [CHECK!] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
 
   </details>
 
