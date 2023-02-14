@@ -55,10 +55,10 @@ const seed = async () => {
         return Campus.create(campus);
       })
     );
-    console.log(green("Seeding success!"));
+    console.log(green("Seeding worked!"));
     db.close();
   } catch (err) {
-    console.error(red("Oh noes! Something went wrong!"));
+    console.error(red("Seeding failed... :("));
     console.error(err);
     db.close();
   }
