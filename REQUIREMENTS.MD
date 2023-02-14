@@ -28,7 +28,7 @@
 
   <details>
 
-- [ ] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
+- [ ] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
   </details>
 

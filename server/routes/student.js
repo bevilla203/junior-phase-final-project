@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { Student } = require("../db")
 
 //should show the text on page /students
-router.get("/", (req, res) => {
-  res.send("this is where all the STUDENTS will show");
+router.get("/", async(req, res) => {
+  const allStudents = await Student.findAll();
+  res.send(allStudents);
 });
 
 router.post("/", (req, res) => {

@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { Campus } = require("../db")
 
 //should show the text on page /campus
-router.get("/", (req, res) => {
-    res.send("this is where all the campuses will show")
+router.get("/", async (req, res) => {
+    const allCampuses = await Campus.findAll();
+    res.send(allCampuses)
 })
 
 router.post("/", (req, res) => {
