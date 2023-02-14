@@ -42,7 +42,6 @@ const students = [
 const seed = async () => {
   try {
     await db.sync({ force: true });
-
     await Promise.all(
       students.map((student) => {
         return Student.create(student);
@@ -64,13 +63,3 @@ const seed = async () => {
 };
 
 seed();
-
-
-// const runSeed = async () => {
-//   await db.sync({ force: true });
-//   console.log(chalk.green("seed completed"));
-//   process.kill(0);
-//   // should end sync process
-// };
-// // run npm run seed to seed database
-// runSeed();

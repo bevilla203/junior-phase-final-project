@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home"
-import Navbar from "../pages/Navbar"
+import Home from "./Home";
+import Navbar from "./Navbar";
 
 /* 
     add components that will exist on every page here!
 */
 const Main = () => {
-    return (
-      <>
-        <Navbar/>
-      </>
-    );
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 };
 
 export default Main;

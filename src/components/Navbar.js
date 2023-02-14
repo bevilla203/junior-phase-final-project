@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet, Link, Routes, Route } from "react-router-dom";
-import Home from './Home'
-import Campuses from './Campuses'
-import Students from './Students'
+import Home from "./Home";
+import Campuses from "./Campuses";
+import Students from "./Students";
 
-export default function Navbar  () {
+export default function Navbar() {
   return (
     <React.Fragment>
       <nav className="nav">
@@ -30,6 +30,4 @@ export default function Navbar  () {
       <Outlet />
     </React.Fragment>
   );
-};
-
-
+}
