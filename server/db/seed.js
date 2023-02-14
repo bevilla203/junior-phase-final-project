@@ -1,5 +1,4 @@
 'use strict'
-const Sequelize = require('sequelize')
 const {db} = require("./index");
 const { Student, Campus } = require('./index')
 const { green, red } = require("chalk");

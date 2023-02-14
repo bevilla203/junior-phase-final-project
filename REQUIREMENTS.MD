@@ -28,7 +28,7 @@
 
   <details>
 
-- [ ] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
+- [CHECK🥳🎉✅✅] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
   </details>
 
@@ -38,7 +38,7 @@
 
   <details>
 
-- [almost... need to create dummy data] Write a function which sync's and seeds your database when your application starts
+- [CHECK🥳🎉✅✅] Write a function which sync's and seeds your database when your application starts
 
   </details>
 
