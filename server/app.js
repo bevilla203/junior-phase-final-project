@@ -3,14 +3,9 @@ const path = require('path')
 const cors = require('cors')
 const volleyball = require('volleyball')
 const app = express()
-const campusRouter = require("./routes/campus");
-const studentRouter = require("./routes/student")
 
-// if URL starts w /students, use student.js
-app.use("/student", studentRouter);
-
-// if URL starts with /campus, use campus.js
-app.use("/campus", campusRouter);
+//if url starts with api, use /api
+app.use("/api", require("../server/db/api"))
 
 app.use(cors())
 
