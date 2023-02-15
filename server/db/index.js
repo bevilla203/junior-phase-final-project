@@ -4,9 +4,7 @@ const db = require('./database')
 const {Campus} = require('./models/Campus')
 const {Student} = require('./models/Student')
 
-Campus.hasMany(Student, {
-  foreignKey: 'StudentId'
-});
+Campus.hasMany(Student);
 Student.belongsTo(Campus);
 
 module.exports = {

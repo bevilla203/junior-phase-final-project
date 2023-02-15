@@ -5,12 +5,14 @@ const { green, red } = require("chalk");
 
 const campuses = [
   {
+
     name: "Rutgers University",
     address: "111 Fake Street, New Brunswick, NJ 09384",
     description:
       "A school with stuff known for being almost in the ivy leagues"
   },
   {
+
     name: "Kean University",
     address: "1000 Morris Ave, Union, NJ 07083",
       imageUrl: "kean.jpg",
@@ -18,41 +20,46 @@ const campuses = [
   },
 ];
 const students = [
-    {
-        firstName: "Ben",
-        lastName: "Villafranca",
-        email: "fakeEmail@gmail.com",
-        gpa: 4.0
-
-    },
-    {
-        firstName: "Keanu",
-        lastName: "Reeves",
-        email: "kReeves@fake.com",
-        gpa: 3.9
-    },
-    {
-        firstName: "Ernest",
-        lastName: "Hemingway",
-        email: "e.hemingway@aol.com",
-        gpa: 3.0
-    }
-]
+  {
+    firstName: "Ben",
+    lastName: "Villafranca",
+    email: "fakeEmail@gmail.com",
+    gpa: 4.0,
+    campusId: 1,
+  },
+  {
+    firstName: "Keanu",
+    lastName: "Reeves",
+    email: "kReeves@fake.com",
+    gpa: 3.9,
+    campusId: 1,
+  },
+  {
+    firstName: "Ernest",
+    lastName: "Hemingway",
+    email: "e.hemingway@aol.com",
+    gpa: 3.0,
+    campusId: 1,
+  },
+];
 
 const seed = async () => {
   try {
     await db.sync({ force: true });
-    await Promise.all(
-      students.map((student) => {
-        return Student.create(student);
-      })
-    );
     
     await Promise.all(
       campuses.map((campus) => {
         return Campus.create(campus);
       })
     );
+
+    
+    await Promise.all(
+      students.map((student) => {
+        return Student.create(student);
+      })
+    );
+    
     console.log(green("Seeding worked!"));
     db.close();
   } catch (err) {

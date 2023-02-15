@@ -42,5 +42,13 @@ const Student = db.define("student", {
       max: 4.0,
     },
   },
+  campusId: {
+    type: Sequelize.DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'campuses',
+      key: 'id'
+    }
+  }
 });
 module.exports = {Student};
