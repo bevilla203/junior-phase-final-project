@@ -20,7 +20,7 @@ export default function Campuses() {
               //
               <div key= {campus.id} className="campus row">
                 <img className = "campusImg" src={campus.imageUrl} />
-                <p>{campus.name}</p>
+                <h2>{campus.name}</h2>
               </div>
             // </NavLink>
           ))
