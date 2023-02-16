@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 and anything else you may need here */
 
 
-
+// the root id is created here and exported to index.html
 const container = document.getElementById("root")
 const root = createRoot(container)
 
