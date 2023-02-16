@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { Campus } = require("../models/Campus");
 
-
 //should show all campusi on localhost:3000/api/campuses
 router.get("/", async (req, res, next) => {
   try {
@@ -12,9 +11,13 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", (req, res) => {
-  console.log(req.body);
-  res.send("new campus created!");
-});
+//GET api/campuses/:id
+router.get('/:id', async (req, res, next) => {
+  try {
+    res.send(await Campus.findByPk(req.params.id));
+  } catch(e) {
+    next(e)
+  }
+})
 
-module.exports = router
+module.exports = router;
