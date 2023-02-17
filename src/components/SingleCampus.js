@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
-import { Routes, Route, NavLink, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
   selectSingleCampus,
   fetchSingleCampus
-} from "../features/SingleCampus/SingleCampusSlice"; // must create features/singleCampus/singleCampusSlice
+} from "../features/SingleCampus/singleCampusSlice"; // must create features/singleCampus/singleCampusSlice
 
 export default function SingleCampus () {
   const { campusId } = useParams(); // what does this do? do I need it?
-
-const singleCampus = useSelector(selectSingleCampus);
+  // useSelector gets a hold of the state SingleCampus which is located in the redux store
+  const singleCampus = useSelector(selectSingleCampus); 
+  
 // I should destructure singleCampus.info as the parts that make up a campus
-const { id, name, imageUrl, address, description } = singleCampus.info; // what does .info do?
+const { name, imageUrl, address, description, students } = singleCampus.info; // what does .info do?
 
   const dispatch = useDispatch();
 

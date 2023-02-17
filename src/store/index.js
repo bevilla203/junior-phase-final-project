@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import campusSlice from "../features/Campuses/campusSlice";
 import studentSlice from "../features/Students/studentSlice";
-import singleAuthorSlice from "../features/SingleCampus/SingleCampusSlice"
+import singleCampusSlice from "../features/SingleCampus/singleCampusSlice"
 
 const store = configureStore({
   reducer: {
     campuses: campusSlice,
     students: studentSlice,
-    singleAuthor: singleAuthorSlice
+    singleCampus: singleCampusSlice
   },
 });
 
