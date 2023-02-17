@@ -2,8 +2,6 @@
 const {db} = require("./index");
 const { Student, Campus } = require('./index')
 const { green, red } = require("chalk");
-const { DiffieHellmanGroup } = require("crypto");
-const { matchRoutes } = require("react-router-dom");
 
 const campuses = [
   {

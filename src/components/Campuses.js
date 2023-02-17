@@ -12,7 +12,7 @@ export default function Campuses() {
   // section
   return (
     <div>
-      <h1 className="campusHeader" > List of All Campuses </h1>
+      <h1 className="campusHeader" > Campuses </h1>
       {campuses && campuses.length
         ? campuses.map(campus => (
             <Link

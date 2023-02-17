@@ -14,7 +14,7 @@ export default function Students() {
 
   return (
     <div>
-      <h1 className="studentHeader"> List of All Students </h1>
+      <h1 className="studentHeader"> Students </h1>
       {students && students.length ? (
         students.map(student => (
           <Link to={`/Students/${student.id}`}

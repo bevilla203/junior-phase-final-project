@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { StudentList } from "./";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
 import {
   selectSingleCampus,
   fetchSingleCampus,
-} from "../features/SingleCampus/singleCampusSlice"; 
+} from "../features/SingleCampus/singleCampusSlice";
 
 export default function SingleCampus() {
   const { campusId } = useParams(); // what does this do? do I need it?
@@ -33,21 +32,8 @@ export default function SingleCampus() {
         <hr />
         {/* <hr> provides a thematic break, a horizontal line spanning the whole page*/}
         <h2>Student Info:</h2>
-        <div>
-          {students && students.length
-            ? students.map((student, index) => (
-                <div key={student.id}>
-                  <p>
-                    {index + 1}. Name: {student.firstName} {student.lastName}
-                  </p>
-                  <p> Email: {student.email}</p>
-                  <br />
-                </div>
-              ))
-            : "No students are currently attending"}
-        </div>
+        <StudentList students={students} />
       </div>
     </div>
   );
 }
-

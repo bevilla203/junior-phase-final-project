@@ -17,6 +17,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:studentId", async (req, res, next) => {
   try {
     const id = req.params.studentId;
+    // findOne: obtains first entry found that fulfills optins
     const student = await Student.findOne({
       where: {
         id: id,
