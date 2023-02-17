@@ -26,6 +26,7 @@ export default function Navbar() {
         <Route path="/" element={<Home />} />
         <Route path="/Campuses" element={<Campuses />} />
         <Route path="/Students" element={<Students />} />
+        
       </Routes>
 
       <Outlet />
