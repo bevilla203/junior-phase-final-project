@@ -1,16 +1,22 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Navbar from "./Navbar";
-import Campuses from "./Campuses"
-
+import { useDispatch, useSelector } from 'react-redux';
+import { Home, Navbar, Campuses, SingleCampus } from './';
 import { fetchCampusesAsync } from "../features/Campuses/campusSlice";
 /* 
-    add components that will exist on every page here!
+    this is your point of entry for your routes
 */
 const Main = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCampusesAsync());
+  }, [dispatch]);
+
+
   return (
     <>
+      <h1> Acme Schools</h1>
       <Navbar />
       
     </>
