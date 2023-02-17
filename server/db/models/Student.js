@@ -31,7 +31,7 @@ const Student = db.define("student", {
     },
   },
   imageUrl: {
-    type: Sequelize.STRING(500),
+    type: Sequelize.STRING(50000),
     defaultValue:
       "http://www.quickmeme.com/img/d7/d7578f862475ecaf98064b381cda998a38409dea1123e07ba0b9babd34255360.jpg",
   },
