@@ -13,7 +13,7 @@ export default function SingleStudent() {
   // useSelector gets a hold of the state SingleCampus which is located in the redux store
   const singleStudent = useSelector(selectSingleStudent);
 
-  const { firstName, lastName, imageUrl, gpa, campusId } = singleStudent;
+  const { firstName, lastName, imageUrl, gpa, campusId, email } = singleStudent;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,9 +24,12 @@ export default function SingleStudent() {
     <div id="single-student" className="column">
       <div id="single-student-detail" className="row">
         <div className="column mr1">
-          <h1>{{ firstName, lastName }}</h1>
+          <h1>
+            {firstName} {lastName}
+          </h1>
+
           <img src={imageUrl} />
-          <br />
+          <p> { email }</p>
           <i> {gpa}</i>
         </div>
         <hr />

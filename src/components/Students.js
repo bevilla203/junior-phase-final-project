@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   fetchStudentsAsync,
   selectStudents,
@@ -15,21 +16,18 @@ export default function Students() {
     <div>
       <h1 className="studentHeader"> List of All Students </h1>
       {students && students.length ? (
-        students.map((student) => (
-          // <NavLink
-          //   to={`/campus/${campus.id}`}
-          //   key={`All campus: ${campus.id}`}
-          // >
-          //
-          <div key={student.id} className="campus row">
-            <img className="studentImg" src={student.imageUrl} />
-            <h2>{`${student.firstName} ${student.lastName}`}</h2>
-          </div>
-          // </NavLink>
+        students.map(student => (
+          <Link to={`/Students/${student.id}`}
+          key={student.id}>
+            <div className="student_row">
+              <img className="studentImg" src={student.imageUrl} />
+              <h2>{`${student.firstName} ${student.lastName}`}</h2>
+            </div>
+          </Link>
         ))
-      ) : (
-        <h1> "Couldn't find any students"</h1>
-      )}
+      ) : 
+        <h1> "Couldn't find the student"</h1>
+      }
     </div>
   );
 }
