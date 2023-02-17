@@ -14,9 +14,15 @@ router.get("/", async (req, res, next) => {
 });
 
 // GET should show individual person on localhost:3000/api/students/:id
-router.get("/:id", async (req, res, next) => {
+router.get("/:studentId", async (req, res, next) => {
   try {
-    res.send(await Student.findByPk(req.params.id));
+    const id = req.params.studentId;
+    const student = await Student.findOne({
+      where: {
+        id: id,
+      }
+    });
+    res.send(student);
   } catch (e) {
     next(e);
   }
