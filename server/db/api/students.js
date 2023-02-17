@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const { Student } = require("../models/Student");
-const { Campus } = require("../models/Campus");
+const { Student, Campus } = require("../../db");
 
 //GET should show on localhost:3000/api/students
 router.get("/", async (req, res, next) => {

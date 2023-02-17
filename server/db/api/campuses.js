@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Campus } = require("../models/Campus");
+const { Campus, Student } = require("../../db");
+
 
 //should show all campusi on localhost:3000/api/campuses
 router.get("/", async (req, res, next) => {
@@ -12,9 +13,16 @@ router.get("/", async (req, res, next) => {
 });
 
 //GET api/campuses/:id
-router.get('/:id', async (req, res, next) => {
+router.get('/:campusId', async (req, res, next) => {
   try {
-    res.send(await Campus.findByPk(req.params.id));
+    const id = req.params.campusId
+    const campus = await Campus.findOne({
+      where: {
+        id:id
+      },
+      include: { model: Student }
+    })
+    res.send(campus)
   } catch(e) {
     next(e)
   }
