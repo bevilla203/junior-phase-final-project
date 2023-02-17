@@ -6,3 +6,6 @@
 .studentImg{
     width: 200px;
 }
+.activeStyle{
+    text-decoration: "underline"
+}
