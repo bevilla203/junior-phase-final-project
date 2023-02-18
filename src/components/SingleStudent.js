@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import Axios from "axios";
 import {
   selectSingleStudent,
   fetchSingleStudent,
-} from "../features/SingleStudent/singleStudentSlice"; 
+} from "../features/SingleStudent/singleStudentSlice";
 
 export default function SingleStudent() {
+  const [school, setSchool] = useState({})
   const { studentId } = useParams(); // gets studentId param from URL
   // useSelector gets a hold of the state SingleCampus which is located in the redux store
   const singleStudent = useSelector(selectSingleStudent);
@@ -16,8 +17,20 @@ export default function SingleStudent() {
   const { firstName, lastName, imageUrl, gpa, campusId, email } = singleStudent;
   const dispatch = useDispatch();
 
+  /////////////////////////////////////////////////
+  const retrieveCampus = async () => {
+    try {
+      await Axios.get(`http://localhost:3000/api/Campuses/${campusId}`)
+        .then(res => setSchool(res.data))
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  /////////////////////////////////////////////////
+
   useEffect(() => {
     dispatch(fetchSingleStudent(studentId));
+    retrieveCampus();
   }, [dispatch]);
 
   return (
@@ -35,8 +48,8 @@ export default function SingleStudent() {
         <hr />
         {/* <hr> provides a thematic break, a horizontal line spanning the whole page*/}
         <h2>Campus Info:</h2>
-        <Link to = {`/Campuses/${campusId}`}>
-          <p>{campusId}</p>
+        <Link to={`/Campuses/${campusId}`}>
+          <p>{school.name}</p>
         </Link>
       </div>
     </div>

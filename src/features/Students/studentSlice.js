@@ -6,7 +6,6 @@ const initialState = [];
 export const fetchStudentsAsync = createAsyncThunk("allStudents", async () => {
   try {
     const { data } = await axios.get(`/api/students`);
-    console.log("succeeded in retrieving students");
     return data;
   } catch (err) {
     console.error(err);

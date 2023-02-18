@@ -12,7 +12,9 @@ export const fetchSingleStudent = createAsyncThunk(
     }
   }
 );
-const initialState = {};
+
+const initialState = {}
+;
 
 const singleStudentSlice = createSlice({
   name: "singleStudent",
