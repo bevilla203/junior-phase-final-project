@@ -29,13 +29,15 @@ export default function SingleStudent() {
           </h1>
 
           <img src={imageUrl} />
-          <p> { email }</p>
+          <p> {email}</p>
           <i> {gpa}</i>
         </div>
         <hr />
         {/* <hr> provides a thematic break, a horizontal line spanning the whole page*/}
         <h2>Campus Info:</h2>
-        <p>{campusId}</p>
+        <Link to = {`/Campuses/${campusId}`}>
+          <p>{campusId}</p>
+        </Link>
       </div>
     </div>
   );

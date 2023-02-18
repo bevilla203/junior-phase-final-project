@@ -31,7 +31,7 @@ export default function SingleCampus() {
         </div>
         <hr />
         {/* <hr> provides a thematic break, a horizontal line spanning the whole page*/}
-        <h2>Student Info:</h2>
+        <h2>Students Attending:</h2>
         <StudentList students={students} />
       </div>
     </div>
