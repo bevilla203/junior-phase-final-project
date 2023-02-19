@@ -13,6 +13,9 @@ export default function Navbar() {
             <Link to="/Campuses">Campuses</Link>
           </li>
           <li>
+            <Link to="/Campuses/AddCampus">Add a Campus!</Link>
+          </li>
+          <li>
             <Link to="/Students">Students</Link>
           </li>
         </ul>

@@ -12,6 +12,9 @@ export const fetchCampusesAsync = createAsyncThunk("allCampuses", async () => {
   }
 });
 
+export const createCampusAsync = createAsyncThunk(
+  ""
+)
 const campusesSlice = createSlice({
   name: "campuses",
   initialState,

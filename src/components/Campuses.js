@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCampusesAsync, selectCampuses } from "../features/Campuses/campusSlice"
 import { Link } from "react-router-dom";
+import AddCampus from "./AddCampus";
 export default function Campuses() {
   const campuses = useSelector(selectCampuses);
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ export default function Campuses() {
   // section
   return (
     <div>
+      <AddCampus />
       <h1 className="campusHeader" > Campuses </h1>
       {campuses && campuses.length
         ? campuses.map(campus => (
