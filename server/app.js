@@ -4,6 +4,7 @@ const cors = require('cors')
 const volleyball = require('volleyball')
 const app = express()
 
+app.use(express.json()); // this needs to be before /api according to stackOverflow
 //if url starts with api, use /api
 app.use("/api", require("../server/db/api"))
 
@@ -13,7 +14,7 @@ app.use(cors())
 app.use(volleyball)
 
 // body parsing middleware
-app.use(express.json())
+
 app.use(express.urlencoded({extended: true}))
 // above middleware should make req.body work...
 

@@ -12,13 +12,12 @@ export const fetchCampusesAsync = createAsyncThunk("allCampuses", async () => {
   }
 });
 
-export const createCampusAsync = createAsyncThunk(
-  ""
-)
 const campusesSlice = createSlice({
   name: "campuses",
   initialState,
-  reducers: {},
+  reducers: {
+    // we can't use regular reducers b/c our data is async
+  },
   //extraReducers: references external actions(not generated in this slice.actions)
   extraReducers: builder => {
     builder.addCase(fetchCampusesAsync.fulfilled, (state, action) => {

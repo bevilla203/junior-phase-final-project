@@ -5,7 +5,11 @@ const { Campus, Student } = require("../../db");
 //should show all campusi on localhost:3000/api/campuses
 router.get("/", async (req, res, next) => {
   try {
-    const campuses = await Campus.findAll();
+    const campuses = await Campus.findAll({
+      order: [
+        ["createdAt", "DESC"]
+      ]
+    });
     res.json(campuses);
   } catch (e) {
     next(e);
@@ -27,5 +31,20 @@ router.get('/:campusId', async (req, res, next) => {
     next(e)
   }
 })
+
+// when a form is posted, the instance is created in the db
+router.post("/", async (req, res, next) => {
+  const {name, address} = req.body;
+  try {
+    const newCampus = await Campus.create({
+      name: name,
+      address: address,
+    });
+    res.json(newCampus);
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 module.exports = router;

@@ -6,10 +6,6 @@ const Campus = db.define("campus", {
     type: Sequelize.STRING(100),
     allowNull: false,
     allowEmpty: false,
-    validate: {
-      notEmpty: true,
-      notNull: true,
-    },
   },
   imageUrl: {
     type: Sequelize.STRING(50000),
