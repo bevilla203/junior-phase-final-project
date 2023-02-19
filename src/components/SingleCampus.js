@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { StudentList } from "./";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectSingleCampus,
   fetchSingleCampus,
 } from "../features/SingleCampus/singleCampusSlice";
-import { StudentList } from './index'
+
 
 export default function SingleCampus() {
   const { campusId } = useParams(); // what does this do? do I need it?
@@ -22,7 +23,7 @@ export default function SingleCampus() {
   return (
     <div id="single-campus" className="column">
       <div id="single-campus-detail" className="row">
-        <div className="column mr1">
+        <div >
           <h1>{name}</h1>
           <img src={imageUrl} />
           <br />

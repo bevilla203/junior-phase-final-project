@@ -17,11 +17,12 @@ router.get("/", async (req, res, next) => {
 router.get("/:studentId", async (req, res, next) => {
   try {
     const id = req.params.studentId;
-    // findOne: obtains first entry found that fulfills optins
+    // findOne: obtains first entry found that fulfills options
     const student = await Student.findOne({
       where: {
         id: id,
-      }
+      },
+      include: { model: Campus }
     });
     res.send(student);
   } catch (e) {
