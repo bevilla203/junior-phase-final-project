@@ -13,7 +13,7 @@ export default function Campuses() {
   // section
   return (
     <div>
-      <AddCampus />
+      <AddCampus  />
       <h1 className="campusHeader" > Campuses </h1>
       {campuses && campuses.length
         ? campuses.map(campus => (
