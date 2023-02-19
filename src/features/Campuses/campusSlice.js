@@ -8,22 +8,23 @@ export const fetchCampusesAsync = createAsyncThunk("allCampuses", async () => {
       const { data } = await axios.get(`/api/campuses`);
     return data;
   } catch (err) {
-    console.error(err);
+    console.error(`error while trying to display all campuses: ${err}`);
   }
 });
 
 export const createCampusAsync = createAsyncThunk(
   "campuses/add",
-  async ({ name, address }) => {
+  async ({ name, address, imageUrl, description }) => {
     try {
       const { data } = await axios.post("/api/campuses", {
         name,
-        address
+        address,
+        imageUrl,
+        description
       });
       return data;
     } catch (error) {
-      console.error("error occurred while trying to create campus: ", error);
-      throw error; 
+      console.error(`error while trying to add campus: ${error}`);
     }
   }
 );

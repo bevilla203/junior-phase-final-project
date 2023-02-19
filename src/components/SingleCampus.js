@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { StudentList } from "./";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectSingleCampus,
   fetchSingleCampus,
 } from "../features/SingleCampus/singleCampusSlice";
+import { StudentList } from './index'
 
 export default function SingleCampus() {
   const { campusId } = useParams(); // what does this do? do I need it?

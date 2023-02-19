@@ -156,8 +156,8 @@
 - [x] Display this component as part of the campuses view, alongside the list of campuses
     
 - Submitting the form with a valid name/address should:
-  - [ ] Make an AJAX request that causes the new campus to be persisted in the database
-  - [ ] Add the new campus to the list of campuses without needing to refresh the page
+  - [x] Make an AJAX request that causes the new campus to be persisted in the database
+  - [x] Add the new campus to the list of campuses without needing to refresh the page
 
   </details>
   
@@ -165,7 +165,7 @@
   
   <details>
     
- - [ ] Write a component to display a form for adding a new student that contains inputs for _at least_ first name, last name and email
+ - [x] Write a component to display a form for adding a new student that contains inputs for _at least_ first name, last name and email
  - [ ] Display this component as part of the students view, alongside the list of students
 
  - Submitting the form with a valid first name/last name/email should:

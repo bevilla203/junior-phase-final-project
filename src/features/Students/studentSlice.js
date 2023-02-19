@@ -8,9 +8,30 @@ export const fetchStudentsAsync = createAsyncThunk("allStudents", async () => {
     const { data } = await axios.get(`/api/students`);
     return data;
   } catch (err) {
-    console.error(err);
+    console.error(`error while trying to display all students: ${err}`);
   }
 });
+
+// adapted from my own campusSlice
+export const createStudentAsync = createAsyncThunk(
+  "students/add",
+  async ({ firstName, lastName, email, imageUrl, gpa, campusId }) => {
+    try {
+      const { data } = await axios.post("/api/students", {
+        firstName,
+        lastName,
+        email,
+        imageUrl,
+        gpa,
+        campusId
+      });
+      return data;
+    } catch (error) {
+      console.error(`error while trying to add student: ${error}`);
+      throw error;
+    }
+  }
+);
 
 const studentsSlice = createSlice({
   name: "students",
@@ -19,11 +40,14 @@ const studentsSlice = createSlice({
   //extraReducers: references external actions(not generated in this slice.actions)
   extraReducers: (builder) => {
     builder.addCase(fetchStudentsAsync.fulfilled, (state, action) => {
-      return action.payload;
+      return action.payload; // should display students on screen
     });
+    builder.addCase(createStudentAsync.fulfilled, (state, action) => {
+      state.push(action.payload) // should add student
+    })
   },
 });
 
-export const selectStudents = (state) => state.students;
+export const selectStudents = state => state.students;
 
 export default studentsSlice.reducer;
