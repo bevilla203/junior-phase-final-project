@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const createNewCampus = createAsyncThunk(
   "campuses/createNewCampus",
-  async (newCampus) => { // newCampus is created here
+  async (newCampus) => { // newCampus is created here and can hold all of payload
     const response = await axios.post("/api/campuses", newCampus);
     return response.data;
   }
