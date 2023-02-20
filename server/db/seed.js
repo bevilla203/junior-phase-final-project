@@ -75,15 +75,6 @@ const students = [
     campusId: 3,
   },
   {
-    firstName: "Barry",
-    lastName: "Dillon",
-    email: "mr.roboto@youtube.com",
-    imageUrl:
-      "https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.tvmaze.com%2Fuploads%2Fimages%2Fmedium_portrait%2F54%2F135631.jpg&imgrefurl=https%3A%2F%2Fwww.tvmaze.com%2Fcharacters%2F63888%2Farcher-barry-dillon&tbnid=AJ3R_9sDNh89fM&vet=12ahUKEwiBrsmF5Zv9AhXJFGIAHf-1DrUQMygPegUIARDbAQ..i&docid=dxl2nnfx_-qInM&w=210&h=295&q=barry%20dillon&ved=2ahUKEwiBrsmF5Zv9AhXJFGIAHf-1DrUQMygPegUIARDbAQ",
-    gpa: 4.0,
-    campusId: 2,
-  },
-  {
     firstName: "Raymond",
     lastName: "Gillette",
     email: "jesusFreak69@gmail.com",

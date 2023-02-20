@@ -9,7 +9,7 @@ import {
 
 
 export default function SingleCampus() {
-  const { campusId } = useParams(); // what does this do? do I need it?
+  const { campusId } = useParams();
   // useSelector gets a hold of the state SingleCampus which is located in the redux store
   const singleCampus = useSelector(selectSingleCampus);
 

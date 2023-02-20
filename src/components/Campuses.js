@@ -4,12 +4,11 @@ import {
   fetchCampusesAsync,
   selectCampuses,
 } from "../features/Campuses/campusSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { deleteCampusAsync } from "../features/Campuses/campusSlice";
 import CreateCampus from "./CreateCampus";
 
 export default function Campuses() {
-  const Navigate = useNavigate();
 
   const campuses = useSelector(selectCampuses);
   const dispatch = useDispatch();

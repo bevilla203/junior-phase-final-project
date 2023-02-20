@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   fetchStudentsAsync,
   selectStudents,
@@ -10,7 +10,6 @@ import CreateStudent from "./CreateStudent";
 
 
 export default function Students() {
-  const Navigate = useNavigate();
   const [loading, isLoading] = useState(true);
     const students = useSelector(selectStudents);
     const dispatch = useDispatch();
@@ -36,6 +35,7 @@ export default function Students() {
                 <h2>{`${student.firstName} ${student.lastName}`}</h2>
               </div>
             </Link>
+            <hr />
           </div>
         ))
       ) : (
