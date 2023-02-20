@@ -18,10 +18,10 @@ export default function Campuses() {
 
       {campuses && campuses.length
         ? campuses.map((campus) => (
-          <div className="school">
-            <button id = {campus.id}>x</button>
+            <div className="school" key={campus.id}>
+              <button id={campus.id}>x</button>
               <Link to={`/Campuses/${campus.id}`}>
-                <div key={campus.id} className="campus_row">
+                <div className="campus_row">
                   <img className="campusImg" src={campus.imageUrl} />
                   <h2>{campus.name}</h2>
                 </div>
