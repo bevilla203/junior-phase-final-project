@@ -13,18 +13,21 @@ export default function Campuses() {
   // section
   return (
     <div>
-      <CreateCampus  />
-      <h1 className="campusHeader" > Campuses </h1>
+      <CreateCampus />
+      <h1 className="campusHeader"> Campuses </h1>
+
       {campuses && campuses.length
-        ? campuses.map(campus => (
-            <Link
-            to={`/Campuses/${campus.id}`}>
-              <div key= {campus.id} className="campus_row">
-                <img className = "campusImg" src={campus.imageUrl} />
-                <h2>{campus.name}</h2>
+        ? campuses.map((campus) => (
+          <div className="school">
+            <button id = {campus.id}>x</button>
+              <Link to={`/Campuses/${campus.id}`}>
+                <div key={campus.id} className="campus_row">
+                  <img className="campusImg" src={campus.imageUrl} />
+                  <h2>{campus.name}</h2>
+                </div>
+                <hr />
+              </Link>
             </div>
-            <hr />
-            </Link>
           ))
         : `Couldn't find the campus with id ${campuses.id}`}
     </div>

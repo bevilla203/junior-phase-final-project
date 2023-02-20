@@ -8,6 +8,8 @@ import {
   fetchSingleStudent,
 } from "../features/SingleStudent/singleStudentSlice";
 
+// PLEASE NOTE: for some students, it takes a few refreshes for resources
+// populate :(
 export default function SingleStudent() {
   const [school, setSchool] = useState({})
   const { studentId } = useParams(); // gets studentId param from URL
