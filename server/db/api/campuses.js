@@ -46,5 +46,15 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+// delete route: api/campuses
+// adapted from server/api/todos.js
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const campus = await Campus.findByPk(req.params.id);
+    await campus.destroy();
+  } catch (error) {
+    next(error)
+  }
+})
 
 module.exports = router;
