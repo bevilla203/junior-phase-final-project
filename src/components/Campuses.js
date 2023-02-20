@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCampusesAsync, selectCampuses } from "../features/Campuses/campusSlice"
+import {
+  fetchCampusesAsync,
+  selectCampuses,
+} from "../features/Campuses/campusSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteCampusAsync } from "../features/Campuses/campusSlice";
 import CreateCampus from "./CreateCampus";
@@ -10,18 +13,21 @@ export default function Campuses() {
 
   const campuses = useSelector(selectCampuses);
   const dispatch = useDispatch();
-  const [loading, isLoading] = useState(true)
+  const [loading, isLoading] = useState(true);
 
   useEffect(() => {
     dispatch(fetchCampusesAsync());
     isLoading(false);
-  }, [dispatch, selectCampuses]);
+  }, [dispatch, campuses]);
 
   const handleDelete = async (id) => {
     try {
       console.log(id);
       dispatch(deleteCampusAsync(id));
-      Navigate("/Deleted")
+      //Navigate("/Deleted");
+      // i had originally added a delete confirmed page...
+      // i realize now to get the page to render fast, i just
+      // needed to put campuses in useEffect
     } catch (error) {
       console.error(error);
     }
@@ -33,7 +39,7 @@ export default function Campuses() {
     <div>
       <CreateCampus />
       <h1 className="campusHeader"> Campuses </h1>
-      {loading ? <div> Loading resources</div>: null}
+      {loading ? <div> Loading resources</div> : null}
       {campuses && campuses.length
         ? campuses.map((campus) => (
             <div className="school" key={campus.id}>

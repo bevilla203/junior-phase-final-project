@@ -1,26 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   fetchStudentsAsync,
   selectStudents,
+  deleteStudentAsync
 } from "../features/Students/studentSlice";
 import CreateStudent from "./CreateStudent";
+
+
 export default function Students() {
+  const Navigate = useNavigate();
+  const [loading, isLoading] = useState(true);
     const students = useSelector(selectStudents);
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(fetchStudentsAsync());
-    }, [dispatch]);
-
+      isLoading(false)
+    }, [dispatch, students]);
+  const handleDelete = (id) => {
+    dispatch(deleteStudentAsync(id));
+  }
   return (
     <div>
       <CreateStudent />
       <h1 className="studentHeader"> Students </h1>
+      {loading ? <div> Loading resources </div> : null}
       {students && students.length ? (
         students.map((student) => (
           <div className="student" key={student.id}>
-            <button id={student.id}> x </button>
+            <button id={student.id} onClick={() => handleDelete(student.id)}> x </button>
             <Link to={`/Students/${student.id}`}>
               <div className="student_row">
                 <img className="studentImg" src={student.imageUrl} />
@@ -30,7 +39,7 @@ export default function Students() {
           </div>
         ))
       ) : (
-        <h1> "Couldn't find any students"</h1>
+        <h1> Couldn't find any student😤</h1>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Home, Navbar, Campuses, Students, SingleCampus, SingleStudent, Deleted } from "./";
+import { NotFound, Home, Navbar, Campuses, Students, SingleCampus, SingleStudent, Deleted } from "./";
 import { fetchCampusesAsync } from "../features/Campuses/campusSlice";
 import { fetchStudentsAsync } from "../features/Students/studentSlice"
 /* 
@@ -26,7 +26,9 @@ const Main = () => {
         <Route path="/Students" element={<Students />} />
         <Route path="/Campuses/:campusId" element={<SingleCampus />} />
         <Route path="/Students/:studentId" element={<SingleStudent />} />
-        <Route path="/Deleted" element={<Deleted/>} />
+        <Route path="/Deleted" element={<Deleted />} />
+        <Route path="/*" element={<NotFound />} />
+        
 
     
 

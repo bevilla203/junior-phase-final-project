@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, Link, Routes, Route } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 export default function Navbar() {
   return (

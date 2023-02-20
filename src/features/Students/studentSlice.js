@@ -32,7 +32,17 @@ export const createStudentAsync = createAsyncThunk(
     }
   }
 );
-
+export const deleteStudentAsync = createAsyncThunk(
+  "students/deleteStudents",
+  async (studentId) => {
+    try {
+      const { data } = await axios.delete(`api/students/${studentId}`);
+      return data;
+    } catch (error) {
+      console.error(`error while trying to delete a student: ${error}`)
+    }
+  }
+)
 const studentsSlice = createSlice({
   name: "students",
   initialState,
@@ -44,6 +54,12 @@ const studentsSlice = createSlice({
     });
     builder.addCase(createStudentAsync.fulfilled, (state, action) => {
       state.push(action.payload) // should add student
+    });
+    builder.addCase(deleteStudentAsync.fulfilled, (state, action) => {
+      const newState = state.filter(
+        (student) => student.id !== action.payload.id
+      )
+      return newState
     })
   },
 });
