@@ -64,6 +64,6 @@ const campusesSlice = createSlice({
   },
 });
 
-export const selectCampuses = (state) => state.campuses;
+export const selectCampuses = state => state.campuses;
 
 export default campusesSlice.reducer;

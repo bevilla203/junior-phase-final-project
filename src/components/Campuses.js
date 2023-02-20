@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCampusesAsync, selectCampuses } from "../features/Campuses/campusSlice"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deleteCampusAsync } from "../features/Campuses/campusSlice";
 import CreateCampus from "./CreateCampus";
 
 export default function Campuses() {
+  const Navigate = useNavigate();
+
   const campuses = useSelector(selectCampuses);
   const dispatch = useDispatch();
   const [loading, isLoading] = useState(true)
 
-  const handleDelete = (id) => {
-    console.log(id);
-    dispatch(deleteCampusAsync(id));
+  useEffect(() => {
+    dispatch(fetchCampusesAsync());
+    isLoading(false);
+  }, [dispatch, selectCampuses]);
+
+  const handleDelete = async (id) => {
+    try {
+      console.log(id);
+      dispatch(deleteCampusAsync(id));
+      Navigate("/Deleted")
+    } catch (error) {
+      console.error(error);
+    }
   };
-useEffect(() => {
-  dispatch(fetchCampusesAsync());
-  isLoading(false)
-}, [dispatch, selectCampuses]);
+
   // based return statement off of Readium's AllAuthor's
   // section
   return (
